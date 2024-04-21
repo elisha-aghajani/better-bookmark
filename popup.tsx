@@ -1,5 +1,5 @@
 function IndexPopup() {
-  return <>Hello World</>
+  return <>Hello World</>;
 }
 
-export default IndexPopup
+export default IndexPopup;
