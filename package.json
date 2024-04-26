@@ -7,14 +7,24 @@
     "package": "plasmo package"
   },
   "manifest": {
-    "host_permissions": [
-      "https://*/*"
-    ]
+    "permissions": [
+      "activeTab",
+      "bookmarks"
+    ],
+    "commands": {
+      "_execute_action": {
+        "suggested_key": {
+          "default": "Ctrl+B",
+          "mac": "Command+B"
+        }
+      }
+    }
   },
   "dependencies": {
     "plasmo": "0.85.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-select": "^5.8.0"
   },
   "devDependencies": {
     "@types/chrome": "0.0.258",
