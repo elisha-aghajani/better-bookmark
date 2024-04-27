@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Select, { createFilter, type SelectInstance } from 'react-select';
 import { useGetFolders } from './use-get-folders';
 import { createBookmark } from './create-bookmark';
@@ -6,6 +6,7 @@ import './popup.css';
 
 function IndexPopup() {
   const folders = useGetFolders();
+  const [menuIsOpen, setMenuIsOpen] = useState(true);
 
   const selectRef =
     useRef<SelectInstance<chrome.bookmarks.BookmarkTreeNode> | null>(null);
@@ -17,7 +18,7 @@ function IndexPopup() {
       <Select
         ref={selectRef}
         autoFocus
-        menuIsOpen
+        menuIsOpen={menuIsOpen}
         placeholder={<div>Select folder...</div>}
         options={folders}
         getOptionValue={(folder) => folder.id}
@@ -54,6 +55,7 @@ function IndexPopup() {
         }}
         onChange={(folder, metadata) => {
           if (metadata.action === 'select-option' && folder) {
+            setMenuIsOpen(false);
             createBookmark(folder.id).then(() => window.close());
           }
         }}
