@@ -1,6 +1,8 @@
 {
   "name": "better-bookmark",
   "version": "0.0.1",
+  "displayName": "Better Bookmark",
+  "description": "Add bookmarks with search.",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
